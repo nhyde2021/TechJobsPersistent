@@ -36,8 +36,20 @@ namespace TechJobsPersistent.Controllers
             return View(addJobViewModel);
         }
 
-        public IActionResult ProcessAddJobForm()
+        public IActionResult ProcessAddJobForm(AddJobViewModel addJobViewModel)
         {
+            if (ModelState.IsValid)
+            {
+                Job job = new Job
+                {
+                    Name = addJobViewModel.Name,
+                    EmployerId = addJobViewModel.EmployerId
+                };
+                context.Jobs.Add(job);
+                context.SaveChanges();
+
+                return Redirect("/home");
+            }
             return View();
         }
 
