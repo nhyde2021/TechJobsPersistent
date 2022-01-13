@@ -2,7 +2,7 @@
 
 namespace TechJobsPersistent.Migrations
 {
-    public partial class RelateEventsAndCategories : Migration
+    public partial class EmployerMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
