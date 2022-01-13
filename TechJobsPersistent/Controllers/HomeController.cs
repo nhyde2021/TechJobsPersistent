@@ -42,10 +42,12 @@ namespace TechJobsPersistent.Controllers
         {
             if (ModelState.IsValid)
             {
+                Employer theEmployer = context.Employers.Find(addJobViewModel.EmployerId);
                 Job job = new Job
                 {
                     Name = addJobViewModel.Name,
-                    EmployerId = addJobViewModel.EmployerId
+                    EmployerId = addJobViewModel.EmployerId,
+                    Employer = theEmployer
                 };
                 context.Jobs.Add(job);
                 context.SaveChanges();
