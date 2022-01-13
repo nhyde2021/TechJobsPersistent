@@ -1,4 +1,7 @@
-﻿<h1>Add a Job</h1>
+﻿@using TechJobsPersistent.ViewModels;
+@model AddJobViewModel;
+
+<h1>Add a Job</h1>
 
 <form asp-controller="Home" asp-action="ProcessAddJobForm" method="post">
     <div class="form-group">
@@ -8,8 +11,18 @@
     </div>
     <div class = "form-group">
         <labe>Employer</labe>
-        <input type = ""
+        <select class = "form-control">
+            @foreach(var employer in Model.Employers)
+            {
+                <option>@employer</option>
+            }
+        </select>
     </div>
+    <div class = "form-group">
+        <labe>Skills</labe>
+        <input class = "form-control"/>
+    </div>
+    
 
     <input type="submit" value="Add Job" />
 </form>
