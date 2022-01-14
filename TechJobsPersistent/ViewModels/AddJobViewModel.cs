@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using TechJobsPersistent.Models;
 
 namespace TechJobsPersistent.ViewModels
 {
     public class AddJobViewModel
     {
+        [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
-        public Employer Employer { get; set; }
         public int EmployerId { get; set; }
+        public int SkillId { get; set; }
         public List<Skill> Skills { get; set; }
         public List<SelectListItem> Employers { get; set; }
 
